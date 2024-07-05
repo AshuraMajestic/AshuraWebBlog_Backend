@@ -6,7 +6,12 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ashurawebblog.settings')
+    settings_module = (
+        "ashurawebblog.deployment"
+        if "WEBSITE_HOSTNAME" in os.environ
+        else "ashurawebblog.settings"
+    )
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ashurawebblog.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -18,5 +23,5 @@ def main():
     execute_from_command_line(sys.argv)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
