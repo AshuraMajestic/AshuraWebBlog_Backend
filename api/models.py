@@ -11,10 +11,3 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class Visitor(models.Model):
-    count = models.PositiveIntegerField(default=0)
-    
-    def __str__(self):
-        return "Visitor"
