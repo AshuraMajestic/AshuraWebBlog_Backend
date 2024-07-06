@@ -3,6 +3,8 @@ from .models import *
 
 
 class BlogPostSerializerWithData(serializers.ModelSerializer):
+    id = serializers.CharField()
+
     class Meta:
         model = BlogPost
         fields = (
@@ -15,7 +17,10 @@ class BlogPostSerializerWithData(serializers.ModelSerializer):
             "username",
         )
 
+
 class BlogPostSerializer(serializers.ModelSerializer):
+    id = serializers.CharField()
+
     class Meta:
         model = BlogPost
-        exclude = ['content']
+        exclude = ["content"]

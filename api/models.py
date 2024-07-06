@@ -2,6 +2,7 @@ from django.db import models
 
 
 class BlogPost(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=150)
     content = models.TextField()
     introduction = models.CharField(max_length=300)
